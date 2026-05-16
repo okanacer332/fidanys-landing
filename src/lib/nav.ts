@@ -57,7 +57,7 @@ export const navigation: NavGroup[] = [
       { title: "Enflasyon Genel Bakış", href: "/docs/raporlar/enflasyon-genel" },
       { title: "Maliyet Analizi", href: "/docs/raporlar/maliyet-analizi" },
       { title: "Satış Fiyatı Performansı", href: "/docs/raporlar/satis-fiyati" },
-      { title: "Kar/Zarar Analizi", href: "/docs/raporlar/kar-zarar" },
+      { title: "Kâr/Zarar Analizi", href: "/docs/raporlar/kar-zarar" },
     ],
   },
   {

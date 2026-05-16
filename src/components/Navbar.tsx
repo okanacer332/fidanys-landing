@@ -1,46 +1,35 @@
 "use client";
 
-import React, { useState, useEffect } from 'react';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { Menu, Search, Sprout, X } from 'lucide-react';
-import { navigation } from '@/lib/nav';
-import { cn } from './Sidebar';
-import SearchModal from './SearchModal';
+import React, { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { Menu, Search, Sprout, X } from "lucide-react";
+import { navigation } from "@/lib/nav";
+import { cn } from "./Sidebar";
+import SearchModal from "./SearchModal";
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
   const pathname = usePathname();
 
-  // Menü açıkken sayfanın scroll olmasını engelle
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
+    document.body.style.overflow = isMobileMenuOpen ? "hidden" : "unset";
     return () => {
-      document.body.style.overflow = 'unset';
+      document.body.style.overflow = "unset";
     };
   }, [isMobileMenuOpen]);
 
-  // Route değiştiğinde menüyü kapat
   useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [pathname]);
-
-  // Ctrl+K veya Cmd+K ile aramayı aç
-  useEffect(() => {
-    const down = (e: KeyboardEvent) => {
-      if (e.key === 'k' && (e.metaKey || e.ctrlKey)) {
-        e.preventDefault();
+    const down = (event: KeyboardEvent) => {
+      if (event.key === "k" && (event.metaKey || event.ctrlKey)) {
+        event.preventDefault();
         setIsSearchOpen(true);
       }
     };
 
-    document.addEventListener('keydown', down);
-    return () => document.removeEventListener('keydown', down);
+    document.addEventListener("keydown", down);
+    return () => document.removeEventListener("keydown", down);
   }, []);
 
   return (
@@ -48,7 +37,7 @@ export default function Navbar() {
       <header className="sticky top-0 z-50 w-full border-b border-zinc-200 bg-white/80 backdrop-blur-md">
         <div className="flex h-16 items-center px-4 md:px-6">
           <div className="flex items-center gap-2">
-            <button 
+            <button
               onClick={() => setIsMobileMenuOpen(true)}
               className="mr-2 md:hidden p-2 -ml-2 text-zinc-600 hover:bg-zinc-100 rounded-md"
             >
@@ -66,7 +55,7 @@ export default function Navbar() {
 
           <div className="flex-1 flex items-center justify-end md:justify-between ml-4 md:ml-8 gap-4">
             <div className="hidden md:flex flex-1 max-w-md">
-              <button 
+              <button
                 onClick={() => setIsSearchOpen(true)}
                 className="relative w-full group flex items-center justify-between pl-3 pr-2 py-2 border border-zinc-200 rounded-lg leading-5 bg-zinc-50 hover:bg-zinc-100 hover:border-zinc-300 transition-all text-sm text-zinc-500 text-left"
               >
@@ -79,28 +68,20 @@ export default function Navbar() {
             </div>
 
             <div className="flex items-center gap-2 md:gap-3">
-              <button 
-                onClick={() => setIsSearchOpen(true)}
-                className="md:hidden p-2 text-zinc-600 hover:bg-zinc-100 rounded-md"
-              >
+              <button onClick={() => setIsSearchOpen(true)} className="md:hidden p-2 text-zinc-600 hover:bg-zinc-100 rounded-md">
                 <Search className="h-5 w-5" />
                 <span className="sr-only">Arama yap</span>
               </button>
-              
-              <a 
-                href="https://ata.fidanys.com.tr" 
-                target="_blank" 
-                rel="noreferrer"
-                className="text-sm font-medium text-zinc-600 hover:text-zinc-900 transition-colors hidden sm:block ml-2"
-              >
+
+              <a href="https://ata.fidanys.com.tr" target="_blank" rel="noreferrer" className="text-sm font-medium text-zinc-600 hover:text-zinc-900 transition-colors hidden sm:block ml-2">
                 Canlı Sistem
               </a>
-              <div className="h-4 w-px bg-zinc-200 hidden sm:block"></div>
-              <a 
-                href="https://ata.fidanys.com.tr/auth/sign-in" 
-                target="_blank" 
+              <div className="h-4 w-px bg-zinc-200 hidden sm:block" />
+              <a
+                href="https://ata.fidanys.com.tr/auth/sign-in"
+                target="_blank"
                 rel="noreferrer"
-                className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring bg-zinc-900 text-zinc-50 shadow hover:bg-zinc-900/90 h-9 px-3 md:px-4 py-2"
+                className="inline-flex items-center justify-center rounded-md text-sm font-medium transition-colors bg-zinc-900 text-zinc-50 shadow hover:bg-zinc-900/90 h-9 px-3 md:px-4 py-2"
               >
                 Giriş Yap
               </a>
@@ -111,7 +92,6 @@ export default function Navbar() {
 
       <SearchModal isOpen={isSearchOpen} onClose={() => setIsSearchOpen(false)} />
 
-      {/* Mobile Menu Overlay */}
       {isMobileMenuOpen && (
         <div className="fixed inset-0 z-[100] bg-white md:hidden overflow-y-auto">
           <div className="sticky top-0 z-10 flex items-center justify-between px-4 h-16 border-b border-zinc-200 bg-white/80 backdrop-blur-md">
@@ -121,17 +101,14 @@ export default function Navbar() {
               </div>
               FidanYS
             </Link>
-            <button 
-              onClick={() => setIsMobileMenuOpen(false)}
-              className="p-2 text-zinc-600 hover:bg-zinc-100 rounded-md"
-            >
+            <button onClick={() => setIsMobileMenuOpen(false)} className="p-2 text-zinc-600 hover:bg-zinc-100 rounded-md">
               <X className="h-6 w-6" />
               <span className="sr-only">Menüyü kapat</span>
             </button>
           </div>
-          
+
           <div className="p-4">
-            <button 
+            <button
               onClick={() => {
                 setIsMobileMenuOpen(false);
                 setIsSearchOpen(true);
@@ -147,9 +124,7 @@ export default function Navbar() {
             <nav className="space-y-8 pb-12">
               {navigation.map((group, index) => (
                 <div key={index} className="space-y-3">
-                  <h4 className="font-bold text-zinc-900 text-sm tracking-tight px-2">
-                    {group.title}
-                  </h4>
+                  <h4 className="font-bold text-zinc-900 text-sm tracking-tight px-2">{group.title}</h4>
                   <ul className="space-y-1">
                     {group.items.map((item, itemIndex) => {
                       const isActive = pathname === item.href;
@@ -159,9 +134,7 @@ export default function Navbar() {
                             href={item.href}
                             className={cn(
                               "block px-4 py-2.5 rounded-md text-sm transition-colors",
-                              isActive
-                                ? "bg-green-50 text-green-700 font-medium"
-                                : "text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900"
+                              isActive ? "bg-green-50 text-green-700 font-medium" : "text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900"
                             )}
                           >
                             {item.title}
