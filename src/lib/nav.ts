@@ -14,6 +14,7 @@ export const navigation: NavGroup[] = [
     items: [
       { title: "Sisteme Giriş", href: "/docs/baslangic/sisteme-giris" },
       { title: "Genel Ekran Mantığı", href: "/docs/baslangic/genel-ekran-mantigi" },
+      { title: "Telefona Ana Ekrana Ekleme", href: "/docs/baslangic/pwa-ana-ekran" },
       { title: "Kullanıcı Yönetimi ve Roller", href: "/docs/baslangic/kullanici-yonetimi-ve-roller" },
       { title: "İlk Kurulum Sırası", href: "/docs/baslangic/ilk-kurulum" },
     ],

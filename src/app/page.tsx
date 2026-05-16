@@ -50,6 +50,25 @@ export default function Home() {
         adım adım kullanım açıklamaları ve iş etkisi notlarıyla anlatılır.
       </p>
 
+      <div className="not-prose my-10 overflow-hidden rounded-2xl border border-zinc-200 bg-zinc-950 shadow-sm">
+        <video
+          className="w-full bg-zinc-950"
+          src="/videos/fidanys-hizli-tur.webm"
+          poster="/images/screenshots/genel-ekran-mantigi.png"
+          autoPlay
+          muted
+          loop
+          playsInline
+          controls
+        />
+        <div className="border-t border-white/10 px-5 py-4">
+          <h2 className="text-base font-semibold text-white">Hızlandırılmış FidanYS sistem turu</h2>
+          <p className="mt-1 text-sm leading-6 text-zinc-300">
+            Girişten stok, sipariş, cari, rapor ve ana ekrana ekleme akışına kadar ana ekranları hızlıca gösterir.
+          </p>
+        </div>
+      </div>
+
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 my-12 not-prose">
         {cards.map((card) => {
           const Icon = card.icon;

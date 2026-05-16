@@ -104,6 +104,63 @@ const docsData: Record<string, DocPage> = {
     ],
   },
 
+  "baslangic/pwa-ana-ekran": {
+    title: "Telefona Ana Ekrana Ekleme",
+    description: "FidanYS'yi iPhone veya Android telefonda normal uygulama gibi ana ekrana ekleme akışı.",
+    screenshot: screen("pwa-android-popup", "Android ana ekrana ekleme pop-up'ı", "Android Chrome tarafında görünen tek tuşla Ana ekrana ekle pop-up'ı."),
+    sections: [
+      {
+        title: "Bu özellik ne işe yarar?",
+        content: `<p>FidanYS bir web uygulaması olduğu halde telefonda normal uygulama gibi açılabilir. Kullanıcı uygulamayı ana ekrana eklediğinde tarayıcı adres çubuğuyla uğraşmadan doğrudan FidanYS ikonuna dokunarak sisteme girer.</p>`,
+      },
+      {
+        title: "Android telefonda tek tuşla ekleme",
+        content: `
+          <ol>
+            <li>Android telefonda Chrome ile <code>https://ata.fidanys.com.tr</code> adresini açın.</li>
+            <li>Sayfanın altında <strong>FidanYS'yi ana ekrana ekle</strong> kutusu görünür.</li>
+            <li><strong>Ana ekrana ekle</strong> butonuna basın.</li>
+            <li>Chrome onay penceresi gösterirse <strong>Yükle</strong> veya <strong>Ekle</strong> seçeneğini onaylayın.</li>
+            <li>Telefon ana ekranında FidanYS ikonu oluşur.</li>
+          </ol>
+          <p>Android Chrome desteklediği için bu akış tek tuşa en yakın deneyimi verir. Kullanıcı butona bastıktan sonra işletim sistemi son onayı isteyebilir.</p>
+        `,
+      },
+      {
+        title: "Android pop-up görüntüsü",
+        content: `<p>Aşağıdaki görüntüde Android tarafındaki hızlı kurulum kutusu görünür. Bu kutu uygulama güvenli HTTPS üzerinden açıldığında ve kullanıcı daha önce kapatmadığında gösterilir.</p>`,
+        screenshot: screen("pwa-android-popup", "Android PWA kurulum kutusu", "Ana ekrana ekle butonunun bulunduğu Android pop-up görünümü."),
+      },
+      {
+        title: "iPhone'da ekleme adımları",
+        content: `
+          <ol>
+            <li>iPhone'da uygulamayı Safari ile açın. iOS tarafında bu işlem Chrome yerine Safari üzerinden yapılmalıdır.</li>
+            <li>Sayfanın altında <strong>iPhone'a ekleme adımları</strong> butonu görünür.</li>
+            <li>Butona basınca adımlar açılır.</li>
+            <li>Safari'nin altındaki <strong>Paylaş</strong> ikonuna dokunun.</li>
+            <li>Açılan menüden <strong>Ana Ekrana Ekle</strong> seçeneğini seçin.</li>
+            <li>Son ekranda <strong>Ekle</strong> butonuna basın.</li>
+          </ol>
+          <p>iOS güvenlik modeli web sitelerinin tek tuşla doğrudan ana ekrana kendisini eklemesine izin vermez. Bu yüzden FidanYS kullanıcıyı doğru Safari adımlarına yönlendirir.</p>
+        `,
+      },
+      {
+        title: "iPhone pop-up görüntüsü",
+        content: `<p>iPhone tarafında pop-up, kullanıcının Safari paylaş menüsünden hangi adımları izlemesi gerektiğini açıklar.</p>`,
+        screenshot: screen("pwa-ios-popup", "iPhone PWA kurulum rehberi", "Safari paylaş ikonu, Ana Ekrana Ekle seçeneği ve Ekle butonunu anlatan iPhone rehberi."),
+      },
+      {
+        title: "Kurulumdan sonra kullanım",
+        content: `<p>Ana ekrana eklenen FidanYS ikonu açıldığında uygulama tam ekran hissine daha yakın çalışır. Kullanıcı yine kendi kullanıcı adı ve parolasıyla giriş yapar; kurulum işlemi oturum güvenliğini değiştirmez.</p>`,
+      },
+    ],
+    relatedLinks: [
+      { title: "Sisteme Giriş", href: "/docs/baslangic/sisteme-giris" },
+      { title: "Genel Ekran Mantığı", href: "/docs/baslangic/genel-ekran-mantigi" },
+    ],
+  },
+
   "baslangic/kullanici-yonetimi-ve-roller": {
     title: "Kullanıcı Yönetimi ve Roller",
     description: "FidanYS içindeki kullanıcı hesapları, rol atama mantığı ve sayfa/yetki bazlı erişim kontrolü.",
