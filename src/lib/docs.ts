@@ -126,6 +126,38 @@ const docsData: Record<string, DocPage> = {
       { title: "Genel Ekran Mantığı", href: "/docs/baslangic/genel-ekran-mantigi" }
     ]
   },
+  "baslangic/ilk-kurulum": {
+    title: "Sıfırdan Kullanım (İlk Kurulum) Sırası",
+    description: "Boş bir FidanYS sisteminin canlı operasyona alınması için yapılması gereken adımlar.",
+    sections: [
+      {
+        title: "1. Aşama: Temel Tanımlar",
+        content: "<p>Önce sistemin operasyon için ihtiyaç duyduğu temel kayıtlar girilir. Sol menüden <strong>Tanımlar</strong> sekmesi kullanılarak şu sıra izlenmelidir:</p><ol><li><strong>Depo Yönetimi:</strong> Stokların tutulacağı en az bir depo (Örn: Merkez Depo) oluşturulur.</li><li><strong>Müşteri Yönetimi:</strong> Satış yapılacak veya daha önce satış yapılmış müşteriler oluşturulur.</li><li><strong>Tedarikçi Yönetimi:</strong> Alım yapılacak, mal girişinde kullanılacak tedarikçiler oluşturulur.</li><li><strong>Gider Kategorileri:</strong> İşletme giderleri için (Örn: Maaş, Elektrik, Sulama) kategoriler tanımlanır.</li><li><strong>Fidan Yönetimi:</strong> Satılacak veya üretilecek fidanlar, özellikleri (türü, çeşidi, anaç, boy, yaş vb.) belirtilerek sistemde bir <strong>Fidan Kartı</strong> olarak açılır.</li></ol>"
+      },
+      {
+        title: "2. Aşama: Stok Başlatma",
+        content: "<p>Fidan kartları ve depo hazır olduktan sonra stok oluşturulur. Ancak stok, doğrudan 'Stok Durumu' ekranından elle yazılarak eklenmez. Stok miktarı şu resmi işlemlerle oluşur ve değişir:</p><ul><li><strong>Mal Girişi:</strong> Tedarikçiden alım girişi yapılarak stoğa eklenir.</li><li><strong>Üretim Partisi:</strong> Üretimden (Tohum/Çelik vb.) elde edilen ürünlerin mal girişi yapılarak stoğa eklenir.</li><li><strong>Sipariş Sevk/Teslim:</strong> Müşteriye sipariş sevk edildiğinde stok otomatik olarak azalır.</li><li><strong>İptal İşlemleri:</strong> Tamamlanmış bir mal girişi iptal edilirse stok geri düşer veya sevk iptal edilirse stok tekrar depoya girer.</li></ul>"
+      },
+      {
+        title: "3. Aşama: Satış Süreci",
+        content: "<p>Stoklar da oluştuktan sonra operasyonel satış süreci başlar:</p><ol><li>Operasyonlar menüsünden <strong>Sipariş Yönetimi</strong> ekranına gidilir.</li><li>Müşteri ve çıkış deposu seçilir.</li><li>Siparişe fidan kalemleri ve fiyatları eklenerek sipariş oluşturulur.</li><li>Sipariş fiziksel olarak hazırlandığında durum 'Sevk Et' olarak güncellenir. Bu anda stok düşer.</li><li>Müşteriye teslimattan sonra durum 'Teslim Et' yapılır.</li><li>Siparişteki <strong>Fatura (Makbuz)</strong> ikonuna tıklanarak sipariş faturaya dönüştürülür. Fatura oluştuğunda müşterinin cari hesabına borç yansır.</li><li>Son olarak <strong>Müşteri Cari</strong> ekranından tahsilat girilerek ödeme alınır.</li></ol>"
+      },
+      {
+        title: "4. Aşama: Üretim Süreci",
+        content: "<p>Eğer işletme dışarıdan hazır almak yerine kendisi üretiyorsa:</p><ol><li><strong>Üretim Partileri</strong> ekranından yeni bir parti (Örn: 2024 Ceviz Üretimi) oluşturulur.</li><li>Parti detayında tohum, poşet, işçilik gibi <strong>üretim giderleri</strong> eklenir.</li><li>Üretimden elde edilen fidanlar, <strong>Mal Girişi</strong> ekranı üzerinden depoya alınır.</li><li>Sistem, bu girişi yaparken girilen tüm giderleri hesaplayıp bir <strong>Birim Maliyet</strong> çıkartarak fidanları stoklara yansıtır.</li></ol>"
+      },
+      {
+        title: "5. Aşama: Muhasebe ve Raporlar",
+        content: "<p>Tüm bu operasyonlar devam ederken muhasebe departmanı devreye girer:</p><ul><li>Müşteri ve Tedarikçi <strong>Cari Hareketleri</strong> ve ekstresi takip edilir.</li><li>Alınan tahsilatlar ve yapılan tediyeler girilir.</li><li>Şirket dışı işletme giderleri (Fatura vb.) kaydedilir.</li><li>Aylık/Yıllık olarak <strong>Enflasyon (EVDS3) Verileri</strong> çekilerek <strong>Kar/Zarar Analizi</strong> ve maliyet raporları incelenir.</li></ul>"
+      }
+    ],
+    relatedLinks: [
+      { title: "Depo Yönetimi", href: "/docs/tanimlar/depo-yonetimi" },
+      { title: "Müşteri Yönetimi", href: "/docs/tanimlar/musteri-yonetimi" },
+      { title: "Mal Girişi", href: "/docs/operasyonlar/mal-girisi" },
+      { title: "Sipariş Yönetimi", href: "/docs/operasyonlar/siparis-yonetimi" }
+    ]
+  },
   "operasyonlar/siparis-yonetimi": {
     title: "Sipariş Yönetimi",
     description: "Müşteriden gelen satış taleplerini kaydetmek, siparişi sevk etmek, teslim etmek ve fatura sürecine aktarmak için kullanılır.",
