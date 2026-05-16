@@ -35,6 +35,13 @@ export default async function DocPage({ params }: { params: Promise<{ slug: stri
               className="text-zinc-700 leading-relaxed space-y-4"
               dangerouslySetInnerHTML={{ __html: section.content }}
             />
+            {section.screenshot && (
+              <ScreenshotPlaceholder 
+                id={section.screenshot.id}
+                title={section.screenshot.title}
+                description={section.screenshot.description}
+              />
+            )}
           </div>
         ))}
       </div>
