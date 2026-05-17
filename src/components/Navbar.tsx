@@ -132,6 +132,7 @@ export default function Navbar() {
                         <li key={itemIndex}>
                           <Link
                             href={item.href}
+                            onClick={() => setIsMobileMenuOpen(false)}
                             className={cn(
                               "block px-4 py-2.5 rounded-md text-sm transition-colors",
                               isActive ? "bg-green-50 text-green-700 font-medium" : "text-zinc-600 hover:bg-zinc-100 hover:text-zinc-900"
