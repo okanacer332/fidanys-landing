@@ -4,7 +4,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Sidebar from "@/components/Sidebar";
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin", "latin-ext"] });
 
 export const metadata: Metadata = {
   title: "FidanYS | Dokümantasyon ve Kullanım Kılavuzu",
@@ -18,6 +18,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="tr" className="scroll-smooth">
+      <head>
+        <meta charSet="utf-8" />
+      </head>
       <body className={`${inter.className} bg-white text-zinc-900 antialiased min-h-screen flex flex-col`}>
         <Navbar />
         <div className="flex-1 max-w-8xl mx-auto w-full flex flex-col md:flex-row">
